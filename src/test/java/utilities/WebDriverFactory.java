@@ -1,2 +1,4 @@
-package utilities;public class WebDriverFactory {
+package utilities;
+
+public class WebDriverFactory {
 }

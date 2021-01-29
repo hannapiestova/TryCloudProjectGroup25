@@ -1,2 +1,4 @@
-package utilities;public class BrowserUtils {
+package utilities;
+
+public class BrowserUtils {
 }

@@ -1,2 +1,4 @@
-package utilities;public class ConfigurationReader {
+package utilities;
+
+public class ConfigurationReader {
 }
