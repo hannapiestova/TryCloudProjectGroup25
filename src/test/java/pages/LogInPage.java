@@ -22,7 +22,7 @@ public class LogInPage {
     @FindBy(id = "password")
     public WebElement passWord;
 
-    @FindBy(id = "submit-form")
+    @FindBy(id = "submit")
     public WebElement logInButton;
 
     @FindBy(id = "lost-password")
