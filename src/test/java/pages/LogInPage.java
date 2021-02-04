@@ -48,6 +48,7 @@ public class LogInPage {
      }
 
      public void forgotPassword(){
+        BrowserUtils.wait(3);
         forgotPassword.click();
      }
 

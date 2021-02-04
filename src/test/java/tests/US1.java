@@ -7,7 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LogInPage;
+import utilities.BrowserUtils;
 import utilities.ConfigurationReader;
+
+import javax.sql.rowset.BaseRowSet;
 
 public class US1 extends TestBase {
 
@@ -36,6 +39,7 @@ public class US1 extends TestBase {
     @Test
     public void forgotPasswordTest(){
         logInPage.forgotPassword();
-        Assert.assertTrue(driver.findElement(By.xpath("//input[@id = 'reset-password-submit']")).isEnabled());
+        BrowserUtils.wait(2);
+        Assert.assertTrue(driver.findElement(By.xpath("//input[@id = 'reset-password-submit']")).isDisplayed());
     }
 }
