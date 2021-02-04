@@ -60,11 +60,11 @@ public class UserStory2 extends base.Test {
         sa.assertTrue(contacts.isDisplayed(),"Contacts did not displayed");
         sa.assertEquals(contacts.getText(),"Contacts","Element has a different name");
 
-        //Calendar
+        //Circles
         WebElement circles = driver.findElement(By.xpath("//ul[@id='appmenu']/li[7]"));
         sa.assertTrue(circles .isDisplayed(),"Circles did not displayed");
         sa.assertEquals(circles .getText(),"Circles","Element has a different name");
-
+        //Calendar
         WebElement calendar = driver.findElement(By.xpath("//ul[@id='appmenu']/li[8]"));
         sa.assertTrue(calendar.isDisplayed(),"Calendar did not displayed");
         sa.assertEquals(calendar.getText(),"Calendar","Element has a different name");
