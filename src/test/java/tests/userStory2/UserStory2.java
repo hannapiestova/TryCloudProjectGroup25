@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 
-public class UserStory2 extends base.Test {
+public class UserStory2 extends base1.Test {
 
     SoftAssert sa = new SoftAssert();
 
