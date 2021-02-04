@@ -15,7 +15,7 @@ import utilities.TryCloudUtil;
 public class US3 {
     WebDriver driver = Driver.get();
     Faker faker = new Faker();
-    // // new contact WebElement under Contact module
+    // // // new contact WebElement under Contact module
     @BeforeClass
     public void setUp(){
         Driver.get().get(ConfigurationReader.getProperty("url"));
