@@ -10,7 +10,7 @@ public class TryCloudUtil {
     public static void LogInTryCloud(){
         //enter username
         WebElement username = Driver.get().findElement(By.xpath("//input[@id='user']"));
-        username.sendKeys(ConfigurationReader.getProperty("username1"));
+        username.sendKeys(ConfigurationReader.getProperty("username4"));
 
         //enter password
         WebElement password = Driver.get().findElement(By.xpath("//input[@id='password']"));
