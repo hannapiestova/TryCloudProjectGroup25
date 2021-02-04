@@ -20,7 +20,7 @@ public abstract class Test {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //Navigate to login page http://qa.trycloud.net/index.php/login?clear=1
-        driver.get(ConfigurationReader.getProperty("url"));
+        driver.get(ConfigurationReader.getProperty("url2"));
         //Enter valid username
         WebElement userName = driver.findElement(By.id("user"));
         userName.sendKeys(ConfigurationReader.getProperty("username1"));
