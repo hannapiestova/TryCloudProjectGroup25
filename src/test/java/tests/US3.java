@@ -13,9 +13,14 @@ public class US3 extends TestBase {
 
     @Test
     public void testSettings(){
-     WebElement fileModule = driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']"));
+
+        driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
      BrowserUtils.wait(4);
-     fileModule.click();
+
+     driver.findElement(By.xpath("//button[@class='settings-button']")).click();
+     BrowserUtils.wait(4);
+
+
 
 
     }
