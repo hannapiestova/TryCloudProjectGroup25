@@ -11,10 +11,11 @@ import utilities.BrowserUtils;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.TryCloudUtil;
+
 public class US3 {
     WebDriver driver = Driver.get();
     Faker faker = new Faker();
-    // new contact WebElement under Contact moodule
+    // // new contact WebElement under Contact module
     @BeforeClass
     public void setUp(){
         Driver.get().get(ConfigurationReader.getProperty("url"));
@@ -52,22 +53,32 @@ public class US3 {
     }
     @Test(priority = 3)
     public void TC3() {
-//Test case #3 - verify users can add a file to favorites.
-//1. Login as a user
-//2. Click action-icon from any file on the page
-//3. Choose "Add to Favorites" option
-//4. Click "Favorites" sub-module on the lest side
-//5. Verify the chosen file is listed on the table
-//(Pre-condition: there should be at least 1 file is uploaded)
+        //Test case #3 - verify users can add a file to favorites.
+        //1. Login as a user
+        // TryCloudUtil.LogInTryCloud(driver);
+        driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[2]/a")).click();
+        //2. Click action-icon from any file on the page
+        driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[1]/label")).click();
+        //3. Choose "Add to Favorites" option
+        // no "Add to Favorites" option
+        //4. Click "Favorites" sub-module on the lest side
+        //5. Verify the chosen file is listed on the table
+        //(Pre-condition: there should be at least 1 file is uploaded)
+
     }
     @Test(priority = 4)
     public void TC4() {
 //Test case #4 - verify users can remove a file from favorites.
-//1. Login as a user
-//2. Click action-icon from any file on the page
+        //1. Login as a user
+        // TryCloudUtil.LogInTryCloud(driver);
+        driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[2]/a")).click();
+        //2. Click action-icon from any file on the page
+        driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[1]/label")).click();
 //3. Click "Remove from Favorites" option
+        //  no  ""Remove from Favorites""
 //4. Verify that the file is removed from Favorites sub-module's table.
 //(Pre-condition: there should be at least 1 file is added to favorites table)
+
     }
     @Test(priority = 5)
     public void TC5() {
@@ -77,6 +88,7 @@ public class US3 {
 //3. Click "upload file"
 //4. Upload a file
 //5. Verify the file is displayed on the page
+
     }
     @Test(priority = 6)
     public void TC6() {
@@ -87,6 +99,7 @@ public class US3 {
 //4. Write a folder name
 //5. Click submit icon
 //6. Verify the folder is displayed on the page
+
     }
     @Test(priority = 7)
     public void TC7() {
@@ -98,6 +111,7 @@ public class US3 {
 //5. Upload a file
 //6. Verify the file is displayed on the page
 //(Pre-condition: there should be at least 1 folder is created on the filers page)
+
     }
     @Test(priority = 8)
     public void TC8() {
@@ -108,6 +122,7 @@ public class US3 {
 //4. Click deleted files on the left bottom corner
 //5. Verify the deleted file is displayed no the page.
 //(Pre-condition: there should be at least 1 file is uploaded inside files page)
+
     }
     @Test(priority = 9)
     public void TC9() {
