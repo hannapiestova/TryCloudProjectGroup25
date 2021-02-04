@@ -19,7 +19,15 @@ public class US3 extends TestBase {
      driver.findElement(By.xpath("//button[@class='settings-button']")).click();
      BrowserUtils.wait(4);
 
-     driver.findElement(By.xpath("//label[@for='showhiddenfilesToggle']"));
+     WebElement checkbox = driver.findElement(By.xpath("//label[@for='showhiddenfilesToggle']"));
+     if(checkbox.isSelected()){
+        checkbox.clear();
+     }
+
+     checkbox.click();
+     BrowserUtils.wait(4);
+
+
 
 
 
