@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +14,8 @@ import utilities.BrowserUtils;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.TryCloudUtil;
+
+import java.util.concurrent.TimeUnit;
 
 public class US3 {
 
@@ -67,19 +70,39 @@ public class US3 {
 
     @Test(priority = 3)
     public void TC3() {
-        // NOT POSSIBLE TO TEST NO ICON "Add to Favorites"
 
         //Test case #3 - verify users can add a file to favorites.
         //1. Login as a user
         // TryCloudUtil.LogInTryCloud(driver);
-    //    driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[2]/a")).click();
+         driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[2]/a")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //2. Click action-icon from any file on the page
-    //  driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[1]/label")).click();
+         driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[2]/a/span[3]/a[2]")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //3. Choose "Add to Favorites" option
-        // no "Add to Favorites" option
+         driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[2]/div/ul/li[3]/a/span[2]")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //4. Click "Favorites" sub-module on the lest side
+         driver.findElement(By.xpath("//*[@id=\"app-navigation\"]/ul/li[3]/a")).click(); // Click "Favorites"
+        BrowserUtils.wait(1);
         //5. Verify the chosen file is listed on the table
+         WebElement newFile = driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[4]/table/tbody/tr/td[1]/a/span[1]"));
+        BrowserUtils.wait(1);
         //(Pre-condition: there should be at least 1 file is uploaded)
+        Assert.assertTrue(newFile.isDisplayed(),"FAIL, File not displayed");
+        BrowserUtils.wait(1);
+
+        // Remove "Favorites tag" by clicking right mouse, if we not gonna remove next time Test gonna fail
+        // creating Action
+        // Actions action = new Actions(driver);
+        // action.contextClick(newFile).click(); right mouse click
+         driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr/td[1]/a/span[3]/a[2]")).click();
+         driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr/td[1]/div/ul/li[3]/a/span[2]")).click();
+         // refresh page
+        BrowserUtils.wait(1);
+        driver.navigate().refresh();
+
+
 
     }
     @Test(priority = 4)
