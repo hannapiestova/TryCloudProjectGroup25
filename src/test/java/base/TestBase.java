@@ -16,7 +16,7 @@ public abstract class TestBase {
 
     @BeforeMethod
     public void setUpMethod(){
-        driver.get(ConfigurationReader.getProperty("url4"));
+        driver.get(ConfigurationReader.getProperty("url1"));
         logInPage.logIn(username,passwrod);
     }
 
