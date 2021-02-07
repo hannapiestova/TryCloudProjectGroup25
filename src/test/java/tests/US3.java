@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.BrowserUtils;
+import utilities.Driver;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -16,17 +17,16 @@ import java.util.concurrent.TimeUnit;
 public class US3 extends TestBase {
 
 
-    @Test
+    @Test(priority = 1)
     public void testSettings(){
-        driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
-     BrowserUtils.wait(4);
+        Driver.get().findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
+        BrowserUtils.wait(4);
+        Driver.get().findElement(By.xpath("//button[@class='settings-button']")).click();
+        BrowserUtils.wait(4);
 
-     driver.findElement(By.xpath("//button[@class='settings-button']")).click();
-     BrowserUtils.wait(4);
-
-        WebElement checkbox1 = driver.findElement(By.xpath("//label[@for='showRichWorkspacesToggle']"));
-        WebElement checkbox2 = driver.findElement(By.xpath("//label[@for='recommendationsEnabledToggle']"));
-        WebElement checkbox3 = driver.findElement(By.xpath("//label[text()='Show hidden files']"));
+        WebElement checkbox1 = Driver.get().findElement(By.xpath("//label[@for='showRichWorkspacesToggle']"));
+        WebElement checkbox2 = Driver.get().findElement(By.xpath("//label[@for='recommendationsEnabledToggle']"));
+        WebElement checkbox3 = Driver.get().findElement(By.xpath("//label[text()='Show hidden files']"));
 
        checkbox1.click();
        BrowserUtils.wait(1);
@@ -43,18 +43,18 @@ public class US3 extends TestBase {
     }
 
 
-    @Test
+    @Test(priority = 2)
     public void testStorage()  {
-        driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
+        Driver.get().findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
         BrowserUtils.wait(1);
-        String txt =driver.findElement(By.xpath("//*[text()='0 B used']")).getText();
-        driver.findElement(By.xpath("//a[@class='button new']")).click();
+        String txt =Driver.get().findElement(By.xpath("//a[@class='icon-quota svg']")).getText();
+        Driver.get().findElement(By.xpath("//a[@class='button new']")).click();
         BrowserUtils.wait(1);
-        driver.findElement(By.xpath("//input[@type='file']")).sendKeys("/Users/mykytakharchenko/Desktop/download.jpg");
+        Driver.get().findElement(By.xpath("//input[@type='file']")).sendKeys("/Users/mykytakharchenko/Desktop/download.jpg");
         BrowserUtils.wait(1);
-        driver.navigate().refresh();
+        Driver.get().navigate().refresh();
         BrowserUtils.wait(1);
-        String txt2 =driver.findElement(By.xpath("//a[@class='icon-quota svg']")).getText();
+        String txt2 =Driver.get().findElement(By.xpath("//a[@class='icon-quota svg']")).getText();
         Assert.assertFalse(txt.equals(txt2));
 
 

@@ -13,7 +13,6 @@ import javax.swing.*;
 import java.util.*;
 
 public class LogInPage {
-    protected WebDriver driver = Driver.get();
 
 
     @FindBy(id = "user")
@@ -28,8 +27,14 @@ public class LogInPage {
     @FindBy(id = "lost-password")
     public WebElement forgotPassword;
 
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']" )
+    public WebElement avatar;
+
+    @FindBy(xpath = "//ul/li[@data-id ='logout']")
+    public  WebElement logOut;
+
      public LogInPage(){
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(Driver.get(), this);
     }
 
      public void logIn(String username , String password){
@@ -53,5 +58,11 @@ public class LogInPage {
         forgotPassword.click();
      }
 
+     public void logout(){
+
+         avatar.click();
+         BrowserUtils.wait(1);
+         logOut.click();
+     }
 
 }
