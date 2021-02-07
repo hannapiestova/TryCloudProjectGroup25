@@ -13,10 +13,6 @@ import utilities.ConfigurationReader;
 import javax.sql.rowset.BaseRowSet;
 
 public class US1 extends TestBase {
-
-
-    Faker faker = new Faker();
-    LogInPage logInPage = new LogInPage();
     String username = ConfigurationReader.getProperty("username2");
     String password = ConfigurationReader.getProperty("password");
     String negUserName = faker.name().username();
