@@ -21,7 +21,7 @@ public class US1 extends TestBase {
 
     @Test
     public void positiveLogIn(){
-        logInPage.logIng(username,password);
+        logInPage.logIn(username,password);
         Assert.assertTrue(driver.getCurrentUrl().equals("http://qa2.trycloud.net/index.php/apps/dashboard/"));
     }
 

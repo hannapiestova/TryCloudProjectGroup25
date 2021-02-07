@@ -28,10 +28,11 @@ public class LogInPage {
     @FindBy(id = "lost-password")
     public WebElement forgotPassword;
 
-    public LogInPage(){
+     public LogInPage(){
         PageFactory.initElements(driver, this);
     }
-     public void logIng(String username , String password){
+
+     public void logIn(String username , String password){
          userName.sendKeys(username);
          BrowserUtils.wait(1);
          passWord.sendKeys(password);
