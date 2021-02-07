@@ -5,8 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LogInPage;
 import utilities.BrowserUtils;
+import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.TryCloudUtil;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -19,6 +22,8 @@ public class US3 extends TestBase {
 
     @Test(priority = 1)
     public void testSettings(){
+
+        TryCloudUtil.LogInTryCloud(Driver.get());
         Driver.get().findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
         BrowserUtils.wait(4);
         Driver.get().findElement(By.xpath("//button[@class='settings-button']")).click();
@@ -45,6 +50,7 @@ public class US3 extends TestBase {
 
     @Test(priority = 2)
     public void testStorage()  {
+        TryCloudUtil.LogInTryCloud(Driver.get());
         Driver.get().findElement(By.xpath("//a[@href='/index.php/apps/files/']")).click();
         BrowserUtils.wait(1);
         String txt =Driver.get().findElement(By.xpath("//a[@class='icon-quota svg']")).getText();

@@ -15,23 +15,15 @@ import utilities.Driver;
 
 public abstract class TestBase {
 
-
-
-
-
-    @BeforeClass
+    @BeforeMethod
     public void setUpMethod(){
-     //   LogInPage logInPage = new LogInPage();
-    //    String username1 = ConfigurationReader.getProperty("username3");
-      //  String password1 = ConfigurationReader.getProperty("password");
         Driver.get().get(ConfigurationReader.getProperty("url1"));
-     //   logInPage.logIn(username1,password1);
+        BrowserUtils.wait(1);
     }
 
 
 
-
-    @AfterClass
+    @AfterMethod
     public void tearDown(){
         Driver.close();
     }

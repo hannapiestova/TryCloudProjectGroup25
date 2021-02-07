@@ -21,7 +21,7 @@ public class US5 {
 
     @BeforeClass
     public void setUp(){
-            Driver.get().get(ConfigurationReader.getProperty("url"));
+            Driver.get().get(ConfigurationReader.getProperty("url1"));
             TryCloudUtil.LogInTryCloud(driver);
         }
 
