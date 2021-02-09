@@ -30,7 +30,7 @@ public class US5 {
        BrowserUtils.wait(5);
     }
 
-    @Test
+    @Test (priority = 1, description = "access to contact module")
     public void TC1(){
         //Test case #1 - verify users can access to Talks module
         // Click “Contacts” module
@@ -41,7 +41,7 @@ public class US5 {
         Assert.assertTrue(contactsPageTitle.contains("Contacts"));
     }
 
-    @Test
+    @Test (priority = 2, description = "Creating new contact")
     public void TC2(){
         //  Test case #2 - verify users can add contacts
         //  2.Click contacts module
@@ -56,7 +56,7 @@ public class US5 {
         Assert.assertTrue(newContact.isDisplayed());
     }
 
-    @Test
+    @Test (priority = 3, description = "Verifying if new contact is created")
     public void TC3(){
         //Test case #3 - verify users can see all the contact names on the contact list
         // 2.Click contacts module
