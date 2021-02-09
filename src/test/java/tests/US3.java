@@ -19,7 +19,7 @@ public class US3 {
     @BeforeClass
     public void setUp(){
         Driver.get().get(ConfigurationReader.getProperty("url"));
-        TryCloudUtil.LogInTryCloud(driver);
+        TryCloudUtil.LogInTryCloud();
     }
     @BeforeMethod
     public void sleep(){

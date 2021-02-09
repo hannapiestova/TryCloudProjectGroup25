@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import pages.ContactModule;
 import utilities.BrowserUtils;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -14,15 +15,13 @@ import utilities.TryCloudUtil;
 
 public class US5 {
 
-    WebDriver driver = Driver.get();
-    Faker faker = new Faker();
+    ContactModule contactModule=new ContactModule();
 
-    // new contact WebElement under Contact moodule
-
+    WebDriver driver=Driver.get();
 
     @BeforeClass
     public void setUp(){
-            Driver.get().get(ConfigurationReader.getProperty("url"));
+            Driver.get().get(ConfigurationReader.getProperty("url1"));
             TryCloudUtil.LogInTryCloud();
         }
 
@@ -35,7 +34,7 @@ public class US5 {
     public void TC1(){
         //Test case #1 - verify users can access to Talks module
         // Click “Contacts” module
-        TryCloudUtil.clickContactsModule();
+        contactModule.clickContactsModule();
 
         // 3.Verify the page tile is Contents module’s tile
         String contactsPageTitle=driver.getTitle();
@@ -46,11 +45,11 @@ public class US5 {
     public void TC2(){
         //  Test case #2 - verify users can add contacts
         //  2.Click contacts module
-        TryCloudUtil.clickContactsModule();
+       contactModule.clickContactsModule();
 
         //  3.Click “New Contact” button
         //  4.Fill out the contact info like : Title, Phone, email, address , etc
-        TryCloudUtil.CreatingNewContact();
+       contactModule.CreatingNewContact();
 
         //  5.Verify the contact name is added to the contact list
         WebElement newContact=driver.findElement(By.xpath("//body[@id='body-user']"));
@@ -61,18 +60,18 @@ public class US5 {
     public void TC3(){
         //Test case #3 - verify users can see all the contact names on the contact list
         // 2.Click contacts module
-        TryCloudUtil.clickContactsModule();
+        contactModule.clickContactsModule();
 
         // 3.Verify the contact names are in the list (Pre-condition: there should be at least 2 contact names are displayed On the contact list)
 
         //Creating 2 contacts
-        TryCloudUtil.CreatingNewContact();
-        WebElement company=driver.findElement(By.xpath("//input[@id='contact-org']"));
-        company.sendKeys("Test1");
+        contactModule.CreatingNewContact();
+
+        contactModule.companyInput.sendKeys("Test1");
         BrowserUtils.wait(5);
 
-        TryCloudUtil.CreatingNewContact();
-        company.sendKeys("Test2");
+        contactModule.CreatingNewContact();
+        contactModule.companyInput.sendKeys("Test2");
         BrowserUtils.wait(5);
 
         Assert.assertTrue(driver.getPageSource().contains("Test1"));
